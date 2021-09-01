@@ -49,7 +49,15 @@ public class PostcodesDeserialiserTests {
         assertEquals( "Scotland", postcodeDto.getCountry());
     }
 
+    @Test
+    public void getNhsHaTest(){
+        assertEquals( "Lanarkshire", postcodeDto.getNhsHa());
+    }
 
+    @Test
+    public void getLongitudeTest(){
+        assertEquals( -4.072924, postcodeDto.getLongitude());
+    }
 
 
 }
