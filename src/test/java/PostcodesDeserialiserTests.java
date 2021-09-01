@@ -20,9 +20,36 @@ public class PostcodesDeserialiserTests {
     }
 
     @Test
-    public void getSuccessTest(){
+    public void getRequestStatusTest(){
         assertEquals( 200, postcodeRequestDto.getStatus());
     }
+
+    @Test
+    public void getPostcodeTest(){
+        assertEquals( "ML3 8SY", postcodeDto.getPostcode());
+    }
+
+    @Test
+    public void getQualityTest(){
+        assertEquals( 1, postcodeDto.getQuality());
+    }
+
+    @Test
+    public void getEastingsTest(){
+        assertEquals( 270008, postcodeDto.getEastings());
+    }
+
+    @Test
+    public void getNorthingsTest(){
+        assertEquals( 653357, postcodeDto.getNorthings());
+    }
+
+    @Test
+    public void getCountryTest(){
+        assertEquals( "Scotland", postcodeDto.getCountry());
+    }
+
+
 
 
 }
