@@ -1,6 +1,6 @@
 import ConfigManagement.ConfigManager;
 import ObjectMapping.DataTransfer.*;
-import ObjectMapping.Deserialise.GeoLookupPostcodesDeserialiser;
+import ObjectMapping.Deserialiser;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +15,8 @@ public class GeoPostcodesDeserialiserJsonTests {
 
     @BeforeAll
     private static void setup(){
-        geoPostcodeRequestDto = new GeoLookupPostcodesDeserialiser().postcodeRequestData(new File(ConfigManager.geoLookupPostcodesTestFileLocation()));
+        File testFile = new File(ConfigManager.geoLookupPostcodesTestFileLocation());
+        geoPostcodeRequestDto = new Deserialiser<>(GeoPostcodeRequestDto.class).postcodeRequestData(testFile);
         postcodeDtos = geoPostcodeRequestDto.getResult();
     }
 

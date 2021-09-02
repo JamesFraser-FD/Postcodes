@@ -9,7 +9,6 @@ import java.io.UnsupportedEncodingException;
 
 public abstract class HttpPostManager extends HttpManager {
 
-    private HttpPost httpPost;
     private JSONObject body;
 
     public HttpPostManager(String urlString) {
@@ -21,7 +20,7 @@ public abstract class HttpPostManager extends HttpManager {
     }
 
     public void makeUrlCall() {
-        httpPost = new HttpPost(buildUrl());
+        HttpPost httpPost = new HttpPost(buildUrl());
 
         StringEntity entity = null;
         try {

@@ -1,8 +1,7 @@
 import ConfigManagement.ConfigManager;
 import ObjectMapping.DataTransfer.BulkPostcodeRequestDto;
-import ObjectMapping.DataTransfer.PostcodeDto;
 import ObjectMapping.DataTransfer.QueryDto;
-import ObjectMapping.Deserialise.BulkPostcodesDeserialiser;
+import ObjectMapping.Deserialiser;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -17,7 +16,8 @@ public class BulkPostcodesDeserialiserJsonTests {
 
     @BeforeAll
     private static void setup(){
-        bulkPostcodeRequestDto = new BulkPostcodesDeserialiser().postcodeRequestData(new File(ConfigManager.bulkPostcodesTestFileLocation()));
+        File testFile = new File(ConfigManager.bulkPostcodesTestFileLocation());
+        bulkPostcodeRequestDto = new Deserialiser<>(BulkPostcodeRequestDto.class).postcodeRequestData(testFile);
         queryDtos = bulkPostcodeRequestDto.getResult();
     }
 

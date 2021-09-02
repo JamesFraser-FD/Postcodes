@@ -3,13 +3,8 @@ package ObjectMapping.DataTransfer;
 
 import java.util.List;
 
-public class BulkPostcodeRequestDto {
-    private int status;
+public class BulkPostcodeRequestDto extends RequestDto {
     private List<QueryDto> result;
-
-    public int getStatus() {
-        return status;
-    }
 
     public List<QueryDto> getResult() {
         return result;

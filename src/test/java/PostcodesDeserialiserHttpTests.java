@@ -1,7 +1,7 @@
 import HttpManagement.PostcodesHttpManager;
 import ObjectMapping.DataTransfer.PostcodeDto;
 import ObjectMapping.DataTransfer.PostcodeRequestDto;
-import ObjectMapping.Deserialise.PostcodesDeserialiser;
+import ObjectMapping.Deserialiser;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +15,8 @@ public class PostcodesDeserialiserHttpTests {
     private static void setup(){
         PostcodesHttpManager postcodesHttpManager = new PostcodesHttpManager("ML38SY");
         postcodesHttpManager.makeUrlCall();
-        postcodeRequestDto = new PostcodesDeserialiser().postcodeRequestData(postcodesHttpManager.getResponseBody());
+        postcodeRequestDto = new Deserialiser<>(PostcodeRequestDto.class).postcodeRequestData(postcodesHttpManager.getResponseBody());
+
         postcodeDto = postcodeRequestDto.getResult();
     }
 

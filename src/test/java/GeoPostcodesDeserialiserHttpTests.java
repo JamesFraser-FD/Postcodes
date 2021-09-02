@@ -1,14 +1,10 @@
-import ConfigManagement.ConfigManager;
-import HttpManagement.BulkPostcodesHttpManager;
 import HttpManagement.GeoLookupPostcodesHttpManager;
 import ObjectMapping.DataTransfer.GeoPostcodeDto;
 import ObjectMapping.DataTransfer.GeoPostcodeRequestDto;
-import ObjectMapping.Deserialise.BulkPostcodesDeserialiser;
-import ObjectMapping.Deserialise.GeoLookupPostcodesDeserialiser;
+import ObjectMapping.Deserialiser;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -19,12 +15,9 @@ public class GeoPostcodesDeserialiserHttpTests {
 
     @BeforeAll
     private static void setup(){
-        geoPostcodeRequestDto = new GeoLookupPostcodesDeserialiser().postcodeRequestData(new File(ConfigManager.geoLookupPostcodesTestFileLocation()));
-        postcodeDtos = geoPostcodeRequestDto.getResult();
-
         GeoLookupPostcodesHttpManager geoPostcodesHttpManager = new GeoLookupPostcodesHttpManager(55.756359, -4.072492);
         geoPostcodesHttpManager.makeUrlCall();
-        geoPostcodeRequestDto = new GeoLookupPostcodesDeserialiser().postcodeRequestData(geoPostcodesHttpManager.getResponseBody());
+        geoPostcodeRequestDto = new Deserialiser<>(GeoPostcodeRequestDto.class).postcodeRequestData(geoPostcodesHttpManager.getResponseBody());
         postcodeDtos = geoPostcodeRequestDto.getResult();
     }
 

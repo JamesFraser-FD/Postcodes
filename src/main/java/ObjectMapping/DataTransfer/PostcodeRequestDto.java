@@ -1,13 +1,8 @@
 package ObjectMapping.DataTransfer;
 
 
-public class PostcodeRequestDto {
-    private int status;
+public class PostcodeRequestDto extends RequestDto {
     private PostcodeDto result;
-
-    public int getStatus() {
-        return status;
-    }
 
     public PostcodeDto getResult() {
         return result;

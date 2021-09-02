@@ -1,7 +1,7 @@
 import ConfigManagement.ConfigManager;
 import ObjectMapping.DataTransfer.PostcodeDto;
 import ObjectMapping.DataTransfer.PostcodeRequestDto;
-import ObjectMapping.Deserialise.PostcodesDeserialiser;
+import ObjectMapping.Deserialiser;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +15,8 @@ public class PostcodesDeserialiserJsonTests {
 
     @BeforeAll
     private static void setup(){
-        postcodeRequestDto = new PostcodesDeserialiser().postcodeRequestData(new File(ConfigManager.postcodeTestFileLocation()));
+        File testFile = new File(ConfigManager.postcodeTestFileLocation());
+        postcodeRequestDto = new Deserialiser<>(PostcodeRequestDto.class).postcodeRequestData(testFile);
         postcodeDto = postcodeRequestDto.getResult();
     }
 

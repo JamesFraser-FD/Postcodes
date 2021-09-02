@@ -1,8 +1,7 @@
 import HttpManagement.BulkPostcodesHttpManager;
 import ObjectMapping.DataTransfer.BulkPostcodeRequestDto;
-import ObjectMapping.DataTransfer.PostcodeDto;
 import ObjectMapping.DataTransfer.QueryDto;
-import ObjectMapping.Deserialise.BulkPostcodesDeserialiser;
+import ObjectMapping.Deserialiser;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -18,7 +17,7 @@ public class BulkPostcodesDeserialiserHttpTests {
     private static void setup(){
         BulkPostcodesHttpManager bulkPostcodesHttpManager = new BulkPostcodesHttpManager(new String[] {"ML38SY", "ML92TN"});
         bulkPostcodesHttpManager.makeUrlCall();
-        bulkPostcodeRequestDto = new BulkPostcodesDeserialiser().postcodeRequestData(bulkPostcodesHttpManager.getResponseBody());
+        bulkPostcodeRequestDto = new Deserialiser<>(BulkPostcodeRequestDto.class).postcodeRequestData(bulkPostcodesHttpManager.getResponseBody());
         queryDtos = bulkPostcodeRequestDto.getResult();
     }
 
