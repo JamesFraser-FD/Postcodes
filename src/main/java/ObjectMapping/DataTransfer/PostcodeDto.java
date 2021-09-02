@@ -1,8 +1,6 @@
-package ObjectMapping;
+package ObjectMapping.DataTransfer;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import java.util.Map;
 
 public class PostcodeDto {
     private String postcode;

@@ -1,4 +1,4 @@
-package ObjectMapping;
+package ObjectMapping.DataTransfer;
 
 
 public class PostcodeRequestDto {

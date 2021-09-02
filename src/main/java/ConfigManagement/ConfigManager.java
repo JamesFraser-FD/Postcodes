@@ -19,6 +19,7 @@ public class ConfigManager {
     public static String baseUrl() {
         return config.getProperty("baseUrl");
     }
-    public static String postcodeTestFileLocation() { return config.getProperty("postcodeTestFileLocation"); }
     public static String postcodesEndpoint() { return config.getProperty("postcodesEndpoint"); }
+    public static String postcodeTestFileLocation() { return config.getProperty("postcodeTestFileLocation"); }
+    public static String bulkPostcodesTestFileLocation() { return config.getProperty("bulkPostcodesTestFileLocation"); }
 }

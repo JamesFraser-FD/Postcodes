@@ -1,32 +1,23 @@
-package HttpManagement;
+package HttpManagement.Base;
 
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 
-public class HttpManager {
+public abstract class HttpManager {
 
-    private final HttpClient client;
-    private final HttpGet httpGet;
-    private HttpResponse httpResponse;
+    protected final HttpClient client;
+    protected HttpResponse httpResponse;
 
     public HttpManager(String urlString) {
         client = HttpClientBuilder.create().build();
-        httpGet = new HttpGet(urlString);
     }
 
-    public void makeUrlCall() {
-        try {
-            httpResponse = client.execute(httpGet);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    public abstract void makeUrlCall();
 
     public String getResponseBody() {
         try {

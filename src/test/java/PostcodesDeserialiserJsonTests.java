@@ -1,7 +1,7 @@
 import ConfigManagement.ConfigManager;
-import ObjectMapping.PostcodeDto;
-import ObjectMapping.PostcodeRequestDto;
-import ObjectMapping.PostcodesDeserialiser;
+import ObjectMapping.DataTransfer.PostcodeDto;
+import ObjectMapping.DataTransfer.PostcodeRequestDto;
+import ObjectMapping.Deserialise.PostcodesDeserialiser;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 

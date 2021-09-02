@@ -1,13 +1,14 @@
-package ObjectMapping;
+package ObjectMapping.Deserialise;
 
 
+import ObjectMapping.DataTransfer.PostcodeRequestDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
 
 public class PostcodesDeserialiser {
-    private ObjectMapper mapper = new ObjectMapper();
+    private final ObjectMapper mapper = new ObjectMapper();
 
     public PostcodeRequestDto postcodeRequestData(File jsonFileLocation) {
         try {
