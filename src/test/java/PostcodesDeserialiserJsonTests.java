@@ -9,7 +9,7 @@ import java.io.File;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class PostcodesDeserialiserTests {
+public class PostcodesDeserialiserJsonTests {
     private static PostcodeRequestDto postcodeRequestDto;
     private static PostcodeDto postcodeDto;
 
@@ -59,5 +59,18 @@ public class PostcodesDeserialiserTests {
         assertEquals( -4.072924, postcodeDto.getLongitude());
     }
 
+    @Test
+    public void getAdminWard(){
+        assertEquals( "Hamilton South", postcodeDto.getAdminWard());
+    }
 
+    @Test
+    public void getNutsCode(){
+        assertEquals( "TLM95", postcodeDto.getCodes().getNuts());
+    }
+
+    @Test
+    public void getParliamentaryConstituencyCode(){
+        assertEquals( "S14000056", postcodeDto.getCodes().getParliamentaryConstituency());
+    }
 }

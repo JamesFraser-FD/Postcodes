@@ -35,7 +35,7 @@ public class PostcodeDto {
     private String ced;
     private String ccg;
     private String nuts;
-    private Map<String, String> codes;
+    private PostcodeCodesDto codes;
 
     public String getPostcode() {
         return postcode;
@@ -129,7 +129,7 @@ public class PostcodeDto {
         return nuts;
     }
 
-    public Map<String, String> getCodes() {
+    public PostcodeCodesDto getCodes() {
         return codes;
     }
 }
