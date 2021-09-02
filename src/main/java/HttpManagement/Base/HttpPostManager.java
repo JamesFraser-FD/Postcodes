@@ -9,26 +9,30 @@ import java.io.UnsupportedEncodingException;
 
 public abstract class HttpPostManager extends HttpManager {
 
-    private final HttpPost httpPost;
+    private HttpPost httpPost;
+    private JSONObject body;
 
     public HttpPostManager(String urlString) {
         super(urlString);
-        httpPost = new HttpPost(urlString);
     }
 
-    public void setBody(JSONObject bodyJson) {
+    public void setBody(JSONObject body) {
+        this.body = body;
+    }
+
+    public void makeUrlCall() {
+        httpPost = new HttpPost(buildUrl());
+
         StringEntity entity = null;
         try {
-            entity = new StringEntity(bodyJson.toString());
+            entity = new StringEntity(body.toString());
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
         httpPost.setEntity(entity);
         httpPost.setHeader("Accept", "application/json");
         httpPost.setHeader("Content-type", "application/json");
-    }
 
-    public void makeUrlCall() {
         try {
             httpResponse = client.execute(httpPost);
         } catch (IOException e) {

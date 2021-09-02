@@ -18,7 +18,6 @@ public class BulkPostcodesDeserialiserJsonTests {
     @BeforeAll
     private static void setup(){
         bulkPostcodeRequestDto = new BulkPostcodesDeserialiser().postcodeRequestData(new File(ConfigManager.bulkPostcodesTestFileLocation()));
-        System.out.println(bulkPostcodeRequestDto);
         queryDtos = bulkPostcodeRequestDto.getResult();
     }
 
@@ -36,10 +35,4 @@ public class BulkPostcodesDeserialiserJsonTests {
     public void getQueryTest(){
         assertEquals( "ML38SY", queryDtos.get(0).getQuery());
     }
-
-    @Test
-    public void getQueryResultTest(){
-        assertEquals( PostcodeDto.class, queryDtos.get(0).getResult().getClass());
-    }
-
 }

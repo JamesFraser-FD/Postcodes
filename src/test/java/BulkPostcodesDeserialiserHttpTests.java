@@ -36,10 +36,4 @@ public class BulkPostcodesDeserialiserHttpTests {
     public void getQueryTest(){
         assertEquals( "ML38SY", queryDtos.get(0).getQuery());
     }
-
-    @Test
-    public void getQueryResultTest(){
-        assertEquals( PostcodeDto.class, queryDtos.get(0).getResult().getClass());
-    }
-
 }
